@@ -1,0 +1,98 @@
+#include <iostream>
+using namespace std;
+
+int main(void)
+{
+   int toimitus, luku1, luku2, luku3;
+   char merkki;
+   
+   cout << "Käytössäsi on seuraavat laskutoimitukset:" << endl;
+   cout << "1: vähennyslasku\n2: yhteenlasku\n" << "3: kertolasku\n4: osamäärä\n5: jakojäännös" <<endl;
+   
+   cout << "Valitse laskutoimitus:";
+   cin >> toimitus;
+   
+   cout << "Anna eka luku:";
+   cin >> luku1;
+   cout << "Anna toinen luku:";
+   cin >> luku2;
+   
+   switch (toimitus){
+     case 1:
+        luku3 = luku1-luku2;
+        merkki = '-';
+        break;
+     case 2:
+        luku3 = luku1+luku2;
+        merkki = '+';
+        break;
+     case 3:
+        luku3 = luku1*luku2;
+        merkki = '*';
+        break;
+     case 4:
+       luku3 = luku1/luku2;
+       merkki = '/';
+       break;
+     case 5:
+       luku3 = luku1%luku2;
+       merkki = '%';
+       break;
+     }
+
+   cout << luku1 << merkki << luku2 << " = " << luku3 << endl;
+}
+
+___________________________________________________________________________________________________________________
+
+#include <iostream>
+using namespace std;
+
+int main ()
+{
+	int selectedNumber;
+	int firstNumber;
+	int secondNumber;
+	
+	cout << "Käytössäsi on seuraavat laskutoimitukset:\n";
+	cout << "1: vähennyslasku\n";
+	cout << "2: yhteenlasku\n";
+	cout << "3: kertolasku\n";
+	cout << "4: osamäärä\n";
+	cout << "5: jakojäännös\n";
+	
+	cout << "Valitse laskutoimitus: ";
+	cin >> selectedNumber;
+	
+	cout << "Anna eka luku: ";
+	cin >> firstNumber;
+	
+	cout << "Anna toinen luku: ";
+	cin >> secondNumber;
+	
+	int subtraction = firstNumber - secondNumber;
+	int sum = firstNumber + secondNumber;
+    	int multiplication = firstNumber * secondNumber;
+	double divided = firstNumber / secondNumber;
+    	int remainder = firstNumber % secondNumber;
+	
+	 switch (selectedNumber){
+            case 1:
+		cout << firstNumber << " - " << secondNumber << " = " << subtraction << "\n";
+                break;
+            case 2:
+                cout << firstNumber << " + " << secondNumber << " = " << sum << "\n";
+                break;
+            case 3:
+                cout << firstNumber << " * " << secondNumber << " = " << multiplication << "\n";
+                break;
+	    case 4:
+		cout << firstNumber << " / " << secondNumber << " = " << divided << "\n";
+		break;
+            case 5:
+                cout << firstNumber << " % " << secondNumber << " = " << remainder << "\n";
+                break;
+            default:
+		cout << "Virheellinen syöte.\n";
+        }
+}

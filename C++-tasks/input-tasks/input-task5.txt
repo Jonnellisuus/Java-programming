@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+int main(void)
+{
+   int luku1, luku2;
+   
+   cout << "Syötä ensimmäinen kokonaisluku:";
+   cin >> luku1;
+   
+   cout << "Syötä toinen kokonaisluku:";
+   cin >> luku2;
+   
+   cout << luku1 << "+" << luku2 << " = " << luku1+luku2 << endl;
+   cout << luku1 << "-" << luku2 << " = " << luku1-luku2 << endl;
+   cout << luku1 << "*" << luku2 << " = " << luku1*luku2 << endl;
+   cout << "Jakojäännös: " << luku1%luku2 << endl;
+}
+
+___________________________________________________________________________________________________________________
+
+#include <iostream>
+using namespace std;
+
+int main ()
+{
+	int firstNumber;
+	int secondNumber;
+	
+	cout << "Syötä ensimmäinen kokonaisluku: ";
+	cin >> firstNumber;
+	
+	cout << "Syötä toinen kokonaisluku: ";
+	cin >> secondNumber;
+	
+	int sum = firstNumber + secondNumber;
+	int subtraction = firstNumber - secondNumber;
+    int multiplication = firstNumber * secondNumber;
+    int remainder = firstNumber % secondNumber;
+	
+	cout << firstNumber << " + " << secondNumber << " = " << sum << "\n";
+	cout << firstNumber << " - " << secondNumber << " = " << subtraction << "\n";
+	cout << firstNumber << " * " << secondNumber << " = " << multiplication << "\n";
+	cout << "Jakojäännös: " << remainder << endl;
+}

@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+
+int main ()
+{
+	int sade;
+	double pii = 3.142;
+	
+	cout << "Anna ympyrän säde: ";
+	cin >> sade;
+	
+	double ala = sade * sade * pii;
+	
+	cout << "Ympyrän ala annetulla säteellä: " << ala << endl;
+}

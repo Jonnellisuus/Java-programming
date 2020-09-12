@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+
+int main ()
+{
+	double markka;
+	double euro = 5.94573;
+	
+	cout << "Syötä jokin markkamäärä: ";
+	cin >> markka;
+	
+	double convertedCurrency = markka / euro;
+	
+	cout << "Markat euroina: " << convertedCurrency << endl;
+}

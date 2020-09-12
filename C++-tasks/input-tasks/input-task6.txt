@@ -1,0 +1,24 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main ()
+{
+	int firstNumber;
+	int secondNumber;
+	int sum;
+	
+	cout << "Anna ensimmäinen kateetti: ";
+	cin >> firstNumber;
+	
+	cout << "Anna toinen kateetti: ";
+	cin >> secondNumber;
+	
+	double firstSquare = firstNumber * firstNumber;
+    double secondSquare = secondNumber * secondNumber;
+    double totalSquare = firstSquare + secondSquare;
+	
+	double hypotenuse = sqrt(totalSquare);
+	
+	cout << "Hypotenuusan pituus: " << hypotenuse << endl;
+}

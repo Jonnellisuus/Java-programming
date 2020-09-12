@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+
+int main ()
+{
+	int firstNumber;
+	
+	cout << "Anna kokonaisluku:";
+	cin >> firstNumber;
+	
+	int i;
+
+    for (i = 1; i <= firstNumber; i++) {
+	cout << i << "\n";
+	}
+}

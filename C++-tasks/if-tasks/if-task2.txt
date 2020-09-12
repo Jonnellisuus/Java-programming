@@ -1,0 +1,65 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main(void){
+   
+   char sukupuoli;
+   string teksti = "Ohjelmassa tapahtunut virhe!";
+   int ika;
+   
+   cout << "Oletko mies vai nainen (m/n)";
+   cin >> sukupuoli;
+   
+   cout << "Anna ikäsi:";
+   cin >> ika;
+   
+   if (sukupuoli == 'm'){
+      if (ika >= 0 && ika < 56){
+         teksti = "Olet mies parhaassa iässä!";
+      }else if(ika >= 56 && ika <= 100){
+         teksti = "Olet viisas mies!";
+      }
+   }else if(sukupuoli == 'n'){
+      if (ika >= 0 && ika < 56){
+         teksti = "Olet neito kauneimmillaan!";
+      }else if(ika >= 56 && ika <= 100){
+         teksti = "Olet nuori ikäiseksesi!";
+      }
+   }
+  
+   cout << teksti << endl;
+}
+
+___________________________________________________________________________________________________________________
+
+#include <iostream>
+using namespace std;
+
+int main ()
+{
+	char gender;
+	int age;
+	
+	cout << "Oletko mies vai nainen (m/n) ";
+	cin >> gender;
+	
+	cout << "Anna ikäsi: ";
+	cin >> age;
+	
+        if (gender == 'm' && age >= 0 && age <= 55){
+            cout << "Olet mies parhaassa iässä!" << endl;
+        }
+        else if (gender == 'm' && age >= 56 && age <= 100){
+            cout << "Olet viisas mies!" << endl;
+        }
+        else if (gender == 'n' && age >= 0 && age <= 55){
+            cout << "Olet neito kauneimmillaan!" << endl;
+        }
+        else if (gender == 'n' && age >= 56 && age <= 100){
+            cout << "Olet nuori ikäiseksesi!" << endl;
+        }
+        else {
+            cout << "Ohjelmassa tapahtunut virhe!" << endl;
+        }
+    }

@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+int main ()
+{
+	int firstNumber;
+	
+	cout << "Anna kokonaisluku: ";
+	cin >> firstNumber;
+	
+	    if (firstNumber % 2 == 0){
+			cout << "Luku " << firstNumber << " on parillinen. " << endl;
+        }
+        else {
+            cout << "Luku " << firstNumber << " on pariton. " << endl;
+        }
+    }

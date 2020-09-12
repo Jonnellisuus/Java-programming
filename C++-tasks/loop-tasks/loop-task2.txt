@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+int main ()
+{
+	int firstNumber;
+	
+	cout << "Anna kokonaisluku:";
+	cin >> firstNumber;
+	
+ 	int i, factorial = 1;
+
+	for (i = 1; i <= firstNumber; i++){
+		factorial = factorial * i;
+	}
+	cout << "Luvun " << firstNumber << " kertoma on " << factorial << endl;
+}

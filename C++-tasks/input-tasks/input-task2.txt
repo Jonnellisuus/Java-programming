@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int main ()
+{
+	int firstNumber;
+	int secondNumber;
+	int sum;
+	
+	cout << "Anna ensimmäinen luku: ";
+	cin >> firstNumber;
+	
+	cout << "Anna toinen luku: ";
+	cin >> secondNumber;
+	
+	sum = firstNumber + secondNumber;
+	
+	cout << "Antamiesi lukujen summa on " << sum << endl;
+}

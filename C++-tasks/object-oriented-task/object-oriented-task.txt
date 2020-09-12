@@ -1,0 +1,21 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Tulostusluokka
+{
+  public: 
+    void Tulosta(string mj);
+};
+
+void Tulostusluokka::Tulosta(string mj)
+{   
+   cout << mj << endl;
+}
+int main()
+{
+  char merkkijono[50];
+  cout << "Anna merkkijono, jonka tulostan:";
+  cin.get(merkkijono, 50);
+  Tulostusluokka tulostaja;
+  tulostaja.Tulosta(merkkijono);
+}
