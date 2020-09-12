@@ -1,0 +1,44 @@
+import java.io.*;
+
+public class Lasku{
+
+  public static void main(String args[])
+  {
+  int luku1, luku2, summa;
+
+  BufferedReader lukija = new BufferedReader(new InputStreamReader(System.in));
+  try{
+      System.out.print("Anna ensimmäinen luku:");
+      luku1 = Integer.parseInt(lukija.readLine());
+      System.out.print("Anna toinen luku:");
+      luku2 = Integer.parseInt(lukija.readLine());
+
+      summa = luku1 + luku2;
+      System.out.println("Antamiesi lukujen summa on " +summa);
+
+   }catch(Exception e){
+       //
+   }
+   }
+}
+
+______________________________________________________________________________________________________________
+
+import java.util.Scanner;
+
+public class Lasku {
+    public static void main(String[] args) {
+
+        Scanner userInput = new Scanner(System.in);
+
+        System.out.print("Anna ensimmäinen luku: ");
+        int firstNumber = userInput.nextInt();
+
+        System.out.print("Anna toinen luku: ");
+        int secondNumber = userInput.nextInt();
+
+        int sum = firstNumber + secondNumber;
+
+        System.out.println("Antamiesi lukujen summa on " + sum);
+    }
+}
