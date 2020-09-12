@@ -1,0 +1,39 @@
+import java.io.*;
+
+public class Silmukka{
+  public static void main(String args[]){
+
+    int i = 0;
+    BufferedReader lukija = new BufferedReader(new InputStreamReader(System.in));
+    try{
+      System.out.print("Anna kokonaisluku:");
+      i = Integer.parseInt(lukija.readLine());
+    }catch(Exception e_){
+      System.out.println("Virhe: " + e_);
+    }
+
+    for(int x=1; x<=i; x++){
+      System.out.println(x);
+    }
+  }
+}
+
+___________________________________________________________________________________________________________________
+
+import java.util.Scanner;
+
+public class Silmukka {
+    public static void main(String[] args) {
+
+        Scanner userInput = new Scanner(System.in);
+
+        System.out.print("Anna kokonaisluku:");
+        int firstNumber = userInput.nextInt();
+
+        int i;
+
+        for (i = 1; i <= firstNumber; i++) {
+            System.out.println(i);
+        }
+    }
+}

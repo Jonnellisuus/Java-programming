@@ -1,0 +1,45 @@
+import java.io.*;
+
+public class Parillisuus{
+  public static void main(String args[]){
+     int a=0;
+
+     InputStreamReader input = new InputStreamReader(System.in);
+     BufferedReader lukija = new BufferedReader(input);
+
+     try{
+        System.out.print("Anna kokonaisluku: ");
+        a = Integer.parseInt(lukija.readLine());
+
+     }catch (Exception e){
+        System.out.println("Virhe: " + e);     
+     }
+
+     if (a%2 == 0){
+        System.out.println("Luku " + a + " on parillinen.");
+     }else{
+        System.out.println("Luku " + a + " on pariton.");
+     }
+  }
+}
+
+___________________________________________________________________________________________________________________
+
+import java.util.Scanner;
+
+public class Parillisuus {
+    public static void main(String[] args) {
+
+        Scanner userInput = new Scanner(System.in);
+
+        System.out.print("Anna kokonaisluku: ");
+        int firstNumber = userInput.nextInt();
+
+        if (firstNumber % 2 == 0){
+            System.out.println("Luku " + firstNumber + " on parillinen.");
+        }
+        else {
+            System.out.println("Luku " + firstNumber + " on pariton.");
+        }
+    }
+}

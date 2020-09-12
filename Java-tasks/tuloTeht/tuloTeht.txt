@@ -1,0 +1,86 @@
+Laadi ohjelma, joka kysyy kuukauden tulot ja laskee sekä tulostaa näytölle tuloista yhteenlasketun tulon, keskitulon kuukautta kohti, sekä suurimman kuukausikohtaisen tulon. Jos syötetty kuukausitulo on negatiivinen, ohjelma tulostaa kysytyt arvot ja päättää toimintansa.
+
+Esimerkkitulostus:
+
+Ohjelma laskee kuukausien kokonaistulon, keskimääräisen kuukausikohtaisen tulon
+ja suurimman kuukausikohtaisen tulon antamiesi tietojen perusteella.
+Syötä kuukausikohtaiset tulot.
+Anna 1. kuukauden tulo: 2000
+Anna 2. kuukauden tulo: 2000
+Anna 3. kuukauden tulo: 2000
+Anna 4. kuukauden tulo: 2200
+Anna 5. kuukauden tulo: 2400
+Anna 6. kuukauden tulo: 2400
+Anna 7. kuukauden tulo: 2000
+Anna 8. kuukauden tulo: 2000
+Anna 9. kuukauden tulo: 2000
+Anna 10. kuukauden tulo: 2100
+Anna 11. kuukauden tulo: 2100
+Anna 12. kuukauden tulo: 2000
+Anna 13. kuukauden tulo: -1
+Kokonaistulot ovat 25200.0
+Keskiarvoinen kuukausikohtainen tulo on 2100.0
+Suurin kuukausikohtainen tulo on 2400.0
+
+___________________________________________________________________________________________________________________
+
+package viikko1viikkoteht3;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Viikko1Viikkoteht3 {
+
+    public static void main(String[] args) {
+
+        ArrayList<Double> tulot = new ArrayList<Double>(1);
+
+        Scanner input = new Scanner(System.in);
+
+        double kkTulo = 0;
+
+        int kuukausi = 0;
+
+        try {
+
+            System.out.println("Syötä kuukausitulosi. Kuukausituloja kysytään kunnes annat negatiivisen luvun (negatiivinen ei sisälly laskuihin)");
+            // kysytään kuukausituloja kunnes käyttäjä antaa negatiivisen tulon
+            do {
+                System.out.print("Anna " + (kuukausi + 1) + ". kuukauden tulo: ");
+
+                kkTulo = input.nextDouble();
+                if (kkTulo > 0) {
+
+                    tulot.add(kkTulo);
+                }
+                kuukausi++;
+
+            } while (kkTulo > 0);
+
+            double kokonaistulo = 0;
+
+            // summataan kaikki tulot
+            for (double i : tulot) {
+                kokonaistulo += i;
+            }
+
+            // lasketaan keskiarvo
+            double kaTulo = Math.round(kokonaistulo / tulot.size() * 100.0) / 100.0;
+
+            // haetaan suurin
+            double suurin = Collections.max(tulot);
+
+            System.out.println("Kokonaistulot ovat " + kokonaistulo);
+            System.out.println("Keskiarvoinen kuukausikohtainen tulo on " + kaTulo);
+            System.out.println("Suurin kuukausikohtainen tulo on " + suurin);
+
+        } catch (InputMismatchException e) {
+            // jos käyttäjä syöttää jotain muuta kuin doublen
+            System.out.println("Et voi syöttää tuloksi muuta kuin lukuja");
+        } finally {
+            input.close();
+        }
+    }
+}

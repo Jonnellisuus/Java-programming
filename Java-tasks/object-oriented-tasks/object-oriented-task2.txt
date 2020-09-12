@@ -1,0 +1,57 @@
+import java.io.*;
+
+public class eka
+{
+    public static void main(String args[])
+    {
+        String merkkijono = "Anna merkkijono, jonka tulostan: ";
+        KysyJaTulosta olio = new KysyJaTulosta();
+        olio.teeHommasi(merkkijono);
+    }
+}
+
+class KysyJaTulosta
+{
+   protected void teeHommasi(String mj)
+   {
+      String mj2="";
+      System.out.print(mj);
+      BufferedReader lukija = new BufferedReader(new InputStreamReader(System.in));
+
+      try
+      {
+         mj2 = lukija.readLine();
+      }catch (Exception virhe){
+         System.out.println(virhe);
+         System.exit(0);
+      }
+      System.out.println(mj2);
+   }
+}
+
+___________________________________________________________________________________________________________________
+
+import java.io.*;
+
+public class eka
+{
+    public static void main(String args[])
+    {
+        String merkkijono = "Anna merkkijono, jonka tulostan: ";
+        KysyJaTulosta olio = new KysyJaTulosta();
+        olio.teeHommasi(merkkijono);
+    }
+}
+
+class KysyJaTulosta
+{
+    public static void teeHommasi(String merkkijono) throws IOException {
+        System.out.println(merkkijono);
+
+        String tulosta;
+        BufferedReader olio = new BufferedReader(new InputStreamReader(System.in));
+        tulosta = olio.readLine();
+
+        System.out.println(tulosta);
+    }
+}

@@ -1,0 +1,139 @@
+Tee ohjelma joka kysyy käyttäjältä suorakaiteen leveyden, korkeuden, piirtomerkin ja sen, tulostetaanko se täytettynä vai ei. Ohjelma tulostaa sitten suorakaiteen annetulla merkillä
+Anna korkeus: 5
+Anna leveys: 6
+Anna piirtomerkki: *
+Täytetty vai ei (k=kyllä, e=ei): k
+
+******
+******
+******
+******
+******
+
+Toinen ajoesimerkki
+
+Anna korkeus: 5
+Anna leveys: 6
+Anna piirtomerkki: *
+Täytetty vai ei (k=kyllä, e=ei): e
+
+******
+*    *
+*    *
+*    *
+******
+
+___________________________________________________________________________________________________________________
+
+package com.company;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        /*
+        Viikko 1. Tehtävä 2.
+        Ohjelma kysyy suorakaiteen korkeuden, leveyden, piirtomerkin ja sen, että tulostetaanko
+        suorakaide täytettynä vai ei. Tämän jälkeen ohjelma tulostaa suorakaiteen käyttäjän syöttämien
+        tietojen mukaan.
+         */
+
+        Scanner firstScanner = new Scanner(System.in);
+
+        System.out.print("Anna korkeus: ");
+        int height = firstScanner.nextInt();
+
+        System.out.print("Anna leveys: ");
+        int width = firstScanner.nextInt();
+
+        System.out.print("Anna piirtomerkki: ");
+        char character = firstScanner.next().charAt(0);
+
+        Scanner secondScanner = new Scanner(System.in);
+        System.out.print("Täytetty vai ei (k=kyllä, e=ei): ");
+
+        String userInput = secondScanner.nextLine();
+
+        if (userInput.equals("k")) {
+            for (int i = 1; i <= height; i++) {
+                for (int j = 1; j <= width; j++) {
+                    System.out.print(character);
+                }
+                System.out.print("\n");
+            }
+        }
+
+        if (userInput.equals("e")) {
+            for (int p = 0; p < height; p++) {
+                StringBuilder stringBuilder = new StringBuilder();
+                stringBuilder.append(character);
+                /*
+                stringBuilder.append(character).append(" ");
+                Yläpuolella oleva koodi toimisi myös. Koodi jättäisi aina valitun merkin jälkeen
+                tyhjän välin.
+                 */
+                for (int q = 2; q < width; q++) {
+                    if (p == 0) {
+                        stringBuilder.append(character);
+                    } else if (p == height - 1) {
+                        stringBuilder.append(character);
+                    } else {
+                        stringBuilder.append(" ");
+                    }
+                }
+                stringBuilder.append(character);
+                System.out.println(stringBuilder);
+            }
+        }
+    }
+}
+
+___________________________________________________________________________________________________________________
+
+package viikko1viikkoteht2;
+import java.util.Scanner;
+
+public class Viikko1Viikkoteht2 {
+
+    public static void main(String[] args) {
+        int leveys;
+        int korkeus;
+        char merkki;
+        char taytettyChar;
+        
+        boolean taytetty = false;
+        
+        Scanner input = new Scanner(System.in);
+        
+        System.out.print("Anna korkeus:");
+        korkeus = input.nextInt();
+        System.out.print("Anna leveys:");
+        leveys = input.nextInt();
+        
+        System.out.print("Anna piirtomerkki:");
+        merkki = input.next().charAt(0); 
+        
+        System.out.print("Täytetty vai ei (K=kyllä, e= ei)?:");
+        taytettyChar = input.next().charAt(0); 
+        if (taytettyChar == 'k' || taytettyChar == 'K')
+            taytetty = true;
+        
+        for (int j = 0; j < leveys; j++)
+                System.out.print(merkki);  
+        System.out.println();
+        for (int i = 0; i < korkeus-2; i++) {
+            System.out.print(merkki);
+            for (int j = 0; j < leveys-2; j++) {
+                if (taytetty) 
+                    System.out.print(merkki);
+                else
+                    System.out.print(" ");
+            }
+            System.out.println(merkki);
+        }
+        for (int j = 0; j < leveys; j++)
+                System.out.print(merkki);  
+        System.out.println();
+    }
+    
+}

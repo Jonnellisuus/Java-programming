@@ -1,0 +1,36 @@
+import java.io.*;
+
+public class Euro{
+  public static void main(String args[])
+  {
+    BufferedReader lukija = new BufferedReader(new InputStreamReader(System.in));
+    double markka, euro, muunnos = 5.94573;
+    
+    try{
+    System.out.print("Syötä jokin markkamäärä:");
+    markka = Double.parseDouble(lukija.readLine());
+    euro = (markka/muunnos);
+    System.out.println("Markat euroina: " + euro);
+    }catch (Exception e){
+       System.out.println(e);
+    }
+  }
+}
+
+___________________________________________________________________________________________________________________
+
+import java.util.Scanner;
+
+public class Euro {
+    public static void main(String[] args) {
+
+        Scanner userInput = new Scanner(System.in);
+
+        System.out.print("Syötä jokin markkamäärä: ");
+        double markka = userInput.nextDouble();
+
+        double euro = markka / 5.94573;
+
+        System.out.println("Markat euroina: " + euro);
+    }
+}

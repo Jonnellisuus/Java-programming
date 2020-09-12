@@ -1,0 +1,49 @@
+import java.lang.Math.*;
+import java.io.*;
+
+public class Hypotenuusa{
+  public static void main(String args[]){
+
+    int a=0, b=0;
+    double c;
+
+    InputStreamReader input = new InputStreamReader(System.in);
+    BufferedReader lukija = new BufferedReader(input);
+
+    try{
+       System.out.print("Anna ensimmäinen kateetti:");
+       a = Integer.parseInt(lukija.readLine());
+       System.out.print("Anna toinen kateetti:");
+       b = Integer.parseInt(lukija.readLine());
+    }catch (Exception e){
+       System.out.println("Virhe: " + e);
+    }
+
+    System.out.println("Hypotenuusan pituus: " + Math.sqrt(a*a+b*b));
+  }
+}
+
+___________________________________________________________________________________________________________________
+
+import java.util.Scanner;
+
+public class Hypotenuusa {
+    public static void main(String[] args) {
+
+        Scanner userInput = new Scanner(System.in);
+
+        System.out.print("Anna ensimmäinen kateetti: ");
+        int firstNumber = userInput.nextInt();
+
+        System.out.print("Anna toinen kateetti: ");
+        int secondNumber = userInput.nextInt();
+
+        double firstSquare = firstNumber * firstNumber;
+        double secondSquare = secondNumber * secondNumber;
+        double totalSquare = firstSquare + secondSquare;
+
+        double hypotenuse = Math.sqrt(totalSquare);
+
+        System.out.println("Hypotenuusan pituus: " + hypotenuse);
+    }
+}

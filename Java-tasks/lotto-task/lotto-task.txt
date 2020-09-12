@@ -1,0 +1,129 @@
+Tee ohjelma joka arpoo lottorivin ja vertaa ohjelman arpomaan toteutuneeseen lottoriviin.
+Aina vertauksen jälkeen ohjelma ilmoittaa montako oli oikein ja mitkä ne olivat.
+Ohjelmassa ei tarvitse välittää lisänumeroista.
+Esimerkiksi järjestelmän arpoma rivi voisi olla 4, 6, 8, 11, 14, 25, 29.
+Ohjelman tulee kysyä käyttäjältä, haluaako se uuden arvottavan lottorivin.
+Jos vastaus on kyllä, niin  sen jälkeen ohjelma  suoríttaa arvonnan ja vertailun.
+Jos vastaus on ei, niin ohjelma päättyy. Ohjelman tulostus voisi näyttää kutakuinkin seuraavalta:
+
+Lottorivi on: 4, 6, 8, 11, 14, 25, 29.
+Haluatko arpoa rivin (k= kyllä, e = ei)? k
+Ohjelma arpoi rivin: 1, 4, 13, 14, 23, 27, 39
+Oikein oli  2 kpl, jotka olivat 4, 14
+Haluatko arpoa rivin (k= kyllä, e = ei)? e
+Kiitos ja hei hei!
+
+___________________________________________________________________________________________________________________
+
+package viikko1viikkoteht4;
+
+import java.io.PrintWriter;
+import java.io.*;
+import java.util.Scanner;
+import java.util.Random;
+import java.util.ArrayList;
+
+public class Viikko1Viikkoteht4 {
+
+    public static void main(String[] args) {
+        int[] numerot = {4, 6, 8, 11, 14, 25, 29};
+        int[] veikkauksenrivi = new int[7];
+        int[] omarivi = new int[7];
+        ArrayList<Integer> osumat = new ArrayList<>();
+
+        // Tässä muodostetaan rivit tiedostoon. Ei millään tavoin pakollinen
+        String tiedostonimi = "C:\\temp\\lotto.txt";
+        File file = new File(tiedostonimi);
+
+        try {
+            PrintWriter pw = new PrintWriter(file);
+
+            for (int i = 0; i < numerot.length; i++) {
+                pw.println(numerot[i]);
+            }
+            pw.close();
+        } catch (Exception ex) {
+            System.out.println("Ei onnistunut?");
+        }
+
+        // Luetaan tiedot takaisin tiedostosta
+        veikkauksenrivi = lue_rivi(file);
+
+        Scanner input = new Scanner(System.in);
+        System.out.println("Tervetuloa lottoamaan :");
+        while (true) {
+            System.out.print("\n\nArvotaanko sinulle rivi? ");
+            String vastaus = input.nextLine();
+
+            if (!vastaus.equals("k")) {
+                break;
+            }
+
+            // Arvotaa rivi ja katsotaan, että luku ei esiinny kahteen kertaan
+            Random rnd = new Random();
+            int lkm = 0;
+            int luku = 0;
+            while (lkm < omarivi.length) {
+                luku = rnd.nextInt(40)+1;
+                boolean loytyi = false;
+                for (int i = 0; i < lkm; i++) {
+                    if (omarivi[i] == luku) {
+                        loytyi = true;
+                        break;
+                    }
+                }
+                if (!loytyi) {
+                    omarivi[lkm++] = luku;
+                }
+            }
+
+            // Verrataan veikkauksen riviä omaan arvottuun riviin
+            osumat.clear();
+            for (int i = 0; i < 7; i++) {
+                for (int j = 0; j < 7; j++) {
+                    if (veikkauksenrivi[i] == omarivi[j]) {
+                        osumat.add(veikkauksenrivi[i]);
+                    }
+                }
+
+            }
+
+            System.out.println("Veikkauksen rivi on: ");
+            for (int i : veikkauksenrivi) {
+                System.out.print(i + " ");
+            }
+            System.out.println("");
+
+            System.out.println("Sinun rivi on: ");
+            for (int i : omarivi) {
+                System.out.print(i + " ");
+            }
+            System.out.println("");
+
+            System.out.println("Tarkistuksen tulokset on.....");
+            for (int i : osumat) {
+                System.out.print(i + " ");
+            }
+
+            System.out.println("Sait " + osumat.size() + " oikein");
+
+        }
+    }
+
+    public static int[] lue_rivi(File file) {
+        int[] rivi = new int[7];
+        try {
+            Scanner tiedostoinput = new Scanner(file);
+
+            for (int i = 0; i < rivi.length; i++) {
+                String line = tiedostoinput.nextLine();
+                rivi[i] = Integer.parseInt(line);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return rivi;
+
+    }
+
+}

@@ -1,0 +1,39 @@
+import java.io.*;
+
+public class Ala{
+  public static void main(String args[])
+  {
+    int sade = 0;
+    double ala, pii = 3.142;
+    BufferedReader lukija = new BufferedReader(new InputStreamReader(System.in));
+    
+    try{
+
+      System.out.print("Anna ympyrän säde:");
+      sade = Integer.parseInt(lukija.readLine());
+      ala = pii * (sade * sade); 
+      System.out.println("Ympyrän ala annetulla säteellä: " + ala);
+    }catch(Exception e){
+       System.out.println("Virhe..");
+    }
+  }
+}
+
+___________________________________________________________________________________________________________________
+
+import java.util.Scanner;
+
+public class Ala {
+    public static void main(String[] args) {
+
+        Scanner userInput = new Scanner(System.in);
+
+        System.out.print("Anna ympyrän säde: ");
+
+        double sade = userInput.nextDouble();
+
+        double ala = sade * sade * 3.142;
+
+        System.out.println("Ympyrän ala annetulla säteellä: " + ala);
+    }
+}

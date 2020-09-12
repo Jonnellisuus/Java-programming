@@ -1,0 +1,53 @@
+import java.io.*;
+
+public class Lasku{
+
+  public static void main(String args[]){
+    int a=0, b=0;
+    InputStreamReader input = new InputStreamReader(System.in);
+    BufferedReader lukija = new BufferedReader(input);
+    try{
+      System.out.print("Syötä ensimmäinen kokonaisluku:");
+      a = Integer.parseInt(lukija.readLine());
+      System.out.println("Syötä toinen kokonaisluku:");
+      b = Integer.parseInt(lukija.readLine());
+    }catch (Exception E){
+       System.out.println("Virhe: " + E);
+    }
+    
+    System.out.println(a + "+" + b + " = " + (a+b));
+    System.out.println(a + "-" + b + " = " + (a-b));
+    System.out.println(a + "*" + b + " = " + (a*b));
+    System.out.println(a + "/" + b + " = " + ((double)a/b));
+    System.out.println("Jakojäännös: " + (a%b));
+  } 
+}
+
+___________________________________________________________________________________________________________________
+
+import java.util.Scanner;
+
+public class Lasku {
+    public static void main(String[] args) {
+
+        Scanner userInput = new Scanner(System.in);
+
+        System.out.print("Syötä ensimmäinen kokonaisluku: ");
+        int firstNumber = userInput.nextInt();
+
+        System.out.print("Syötä toinen kokonaisluku: ");
+        int secondNumber = userInput.nextInt();
+
+        int sum = (firstNumber + secondNumber);
+        int subtraction = (firstNumber - secondNumber);
+        int multiplication = (firstNumber * secondNumber);
+        double divided = (double) firstNumber / secondNumber;
+        int remainder = (firstNumber % secondNumber);
+
+        System.out.println(firstNumber + " + " + secondNumber + " = " + sum);
+        System.out.println(firstNumber + " - " + secondNumber + " = " + subtraction);
+        System.out.println(firstNumber + " * " + secondNumber + " = " + multiplication);
+        System.out.println(firstNumber + " / " + secondNumber + " = " + divided);
+        System.out.println("Jakojäännös: " + remainder);
+    }
+}
