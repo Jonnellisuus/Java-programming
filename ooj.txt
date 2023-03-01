@@ -1,0 +1,269 @@
+package fi.utu.tech.ooj.exercise0;
+
+import java.util.Scanner;
+
+public class Main {
+
+    /*
+     * Taulukot, joita voi käyttää mikäli ei teen kaikkia tehtäviä. Ohjeet tehtävänannossa.
+     */
+
+    // static int[][] teht4Array = {{1,456,6,-5678,23},{23,22,6,-2,2},{3,1,-5,44,6},{55,3,-8,3,2}};
+    // static String[][] teht5Array = {{"1","456","6","5678","23"},{"23","22","6","2","2"},{"3","1","5","44","6"},{"55","3","8","3","2"}};
+
+    /*
+     * Tehtävä 2
+     *
+     * Metodi lukee syötteenä kaksi lukua 1 suurempaa kokonaislukua ja palauttaa ne taulukkona.
+     *
+     * @return Kokonaislukutyyppinen taulukko, jossa on kaksi arvoa 1 suurempaa alkiota
+     */
+
+    // TEE TÄHÄN TEHTÄVÄ 2
+
+    private static int[] readArraySize() {
+        System.out.println("\n" + "User is asked to enter two positive numbers." + "\n");
+        Scanner scanInput = new Scanner(System.in);
+
+        int firstNumber = 0;
+        int secondNumber = 0;
+
+        while (firstNumber < 1) {
+            System.out.print("Please enter the first number: ");
+            try {
+                String userInput = scanInput.nextLine();
+                firstNumber = Integer.parseInt(userInput);
+                if (firstNumber < 1) {
+                    System.out.println("Invalid input. The input can only be a positive number. " + "\n");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. The input can only be a positive number. " + "\n");
+            }
+        }
+
+        while (secondNumber < 1) {
+            System.out.print("Please enter the second number: ");
+            try {
+                String userInput = scanInput.nextLine();
+                secondNumber = Integer.parseInt(userInput);
+                if (secondNumber < 1) {
+                    System.out.println("Invalid input. The input can only be a positive number. " + "\n");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. The input can only be a positive number. " + "\n");
+            }
+        }
+        return new int[]{firstNumber, secondNumber};
+    }
+
+    /*
+     * Tehtävä 3
+     *
+     * Metodi lukee syötteenä xSize*ySize kappaletta kokonaislukuja ja sijoittaa ne kokonaislukutyyppiseen
+     * taulukkoon, joka palautetaan metodista.
+     *
+     * @param xSize Taulukon sarakemäärä
+     * @param ySize Taulukon rivimäärä
+     * @return xSize*ySize kokoinen kokonaislukutyyppinen taulukko, joka on täytetty kokonaisluvuilla
+     */
+
+    // TEE TÄHÄN TEHTÄVÄ 3
+
+    private static int[][] readArrayData(int xSize, int ySize) {
+        System.out.println("\n" + "The program will print a table which size is based on the previously given numbers." +
+                "\n" + "The user is asked to input new numbers so the table can be filled with them." + "\n");
+
+        Scanner scanInput = new Scanner(System.in);
+
+        int[][] array = new int[xSize][ySize];
+
+        for (int y = 0; y < ySize; y++) {
+            for (int x = 0; x < xSize; x++) {
+                while (true) {
+                    try {
+                        System.out.print("Input a number: ");
+                        String userInput = scanInput.nextLine();
+                        array[x][y] = Integer.parseInt(userInput);
+                        break;
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid input. The input can only be a number. " + "\n");
+                    }
+                }
+            }
+        }
+        System.out.println("\n" + "Here is the generated table: " + "\n");
+        return array;
+    }
+
+    /*
+     * Tehtävä 4
+     *
+     * Metodi tarkastaa, että argumenttina saadun taulukon kaikki alkiot ovat positiivisia. Jos jokin luku ei ole
+     * positiivinen, se vaihdetaan itseisarvokseen.
+     *
+     * @param inputArray Kokonaislukutyyppinen taulukko
+     * @return parametrinä saadun taulukon kokoinen merkkijonotyyppinen taulukko
+     */
+
+    // TEE TÄHÄN TEHTÄVÄ 4
+
+    private static String[][] checkArrayData(int[][] arrayIn) {
+        String[][] arrayOut = new String[arrayIn.length][arrayIn[0].length];
+        for (int y = 0; y < arrayOut[0].length; y++) {
+            for (int x = 0; x < arrayOut.length; x++) {
+                arrayOut[x][y] = String.valueOf(Math.abs(arrayIn[x][y]));
+            }
+        }
+        return arrayOut;
+    }
+
+    /*
+     * Tehtävä 5
+     * Metodi tulostaa argumenttina saamansa taulukon muotoillen sen taulukkomuotoon ja tasaten sarakkeet oikealle.
+     *
+     * @param inputArray Merkkijonotyyppinen taulukko
+     * @return void
+     */
+
+    // TEE TÄHÄN TEHTÄVÄ 5
+
+    public static void printArray(String[][] array) {
+        StringBuilder buildString = new StringBuilder();
+        buildString.append("%5s".repeat(array[0].length));
+        buildString.append("\n");
+
+        for(Object[] row : array) {
+            System.out.format(buildString.toString(), row);
+        }
+        System.out.println();
+    }
+
+    /*
+     * Main class.
+     *
+     * @param args Command line arguments
+     */
+
+    public static void main(String[] args) {
+        /*
+          FizzBuzz-luokan runFizzBuzz()-metodilla voi tarkistaa harjoitustyöpohjan toimivuuden omassa koneessa
+          ennen tehtävien tekemistä. Testin jälkeen alla olevan rivin voi joko kommentoida tai poistaa.
+         */
+
+        // FizzBuzz.runFizzBuzz();
+
+        // Tehtävät 2-5
+        // Kirjoita tähän tarvittavat metodikutsu ja muut toiminteet.
+
+        int[] arraySize = readArraySize();
+
+        int[][] array = readArrayData(arraySize[0], arraySize[1]);
+
+        String[][] checkArray = checkArrayData(array);
+
+        printArray(checkArray);
+
+        //Tehtävä 6
+        // Kirjoita tähän tarvittavat metodikutsu ja muut toiminteet.
+        // Osa tehtävästä 6 tehdään RajoitettuLista luokkaan
+
+        RajoitettuLista l = new RajoitettuLista(10);
+        l.lisaa(6);
+        System.out.println(l);
+        l.lisaa(5);
+        System.out.println(l);
+        l.lisaa(3);
+        System.out.println(l);
+        l.lisaa(1);
+        System.out.println(l);
+    }
+}
+
+________________________________________________________________________
+
+package fi.utu.tech.ooj.exercise0;
+import java.util.ArrayList;
+
+/**
+ * RajoitettuLista esittää kokonaislukulistaa, jonka alkioiden summa ei voi ylittää annettua maksimiarvoa.  
+ */
+public class RajoitettuLista {
+	private int maxSumma; // Suurin sallittu listan alkioiden summa
+	private ArrayList<Integer> luvut;
+
+	/*
+	 * Konstruktori - luo uuden RajoitettuLista-olion
+	 * @param maksimiSumma Suurin sallittu listan alkioiden summa
+	 */
+
+	public RajoitettuLista(int maksimiSumma) {
+		maxSumma = maksimiSumma;
+		luvut = new ArrayList<Integer>();
+	}
+
+	public int annaMaksimiSumma() { return maxSumma; }
+
+	public String toString() {
+		return luvut.toString();
+	}
+
+	/*
+	 * Palauttaa listan sisältämien alkioiden summan.
+	 */
+
+	public int laskeSumma() {
+		// Toteuta tämä
+
+		// HUOM! pitäisi myös palauttaa int eikä void
+		return this.luvut.stream().reduce(0, Integer::sum);
+	}
+
+	/*
+	 * Lisää annetun luvun listaan, mikäli listan alkioiden summa on lisäyksen jälkeen korkeintaan
+	 * this.annaMaksimiSumma(). Muussa tapauksessa lista pysyy ennallaan.
+	 *
+	 * @param luku Lisättävä luku
+	 * @return True, jos luku lisättiin listaan. False, jos lukua ei lisätty.
+	 */
+
+	public boolean lisaa(int luku) {
+		// Toteuta tämä
+
+		if (laskeSumma() + luku > this.maxSumma) {
+			return false;
+		}
+		luvut.add(luku);
+		return true;
+
+		// HUOM! pitäisi myös palauttaa boolean eikä void
+	}
+}
+
+________________________________________________________________________
+
+package fi.utu.tech.ooj.exercise0;
+
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+public class FizzBuzz {
+
+    public static List<String> fizzBuzz() {
+        return IntStream.range(1, 100)
+                .mapToObj(
+                        (int i) -> {
+                            boolean divBy3 = i % 3 == 0;
+                            boolean divBy5 = i % 5 == 0;
+
+                            return divBy3 && divBy5
+                                    ? "FizzBuzz"
+                                    : divBy3 ? "Fizz" : divBy5 ? "Buzz" : String.valueOf(i);
+                        })
+                .collect(Collectors.toList());
+    }
+
+    public static void runFizzBuzz() {
+        for (String i : fizzBuzz()) System.out.println(i);
+    }
+}
